@@ -24,7 +24,7 @@
     <ClCompile Include="GameStuff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RunTools.cpp">
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Settings.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="GameStuff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RunTools.h">
+    <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Settings.h">

@@ -132,13 +132,13 @@
     <ClCompile Include="GameStuff.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="RunTools.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameStuff.h" />
     <ClInclude Include="Physics.h" />
-    <ClInclude Include="RunTools.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

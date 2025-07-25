@@ -1,14 +1,8 @@
-#include <SFML/Graphics.hpp>
-using namespace sf;
+#include "Game.h"
 
 int main() {
-	RenderWindow main(VideoMode(800, 600), "DOOMSCALL GAME");
-	Event e;
-	while (main.isOpen()) {
-		while (main.pollEvent(e)) {
-
-		}
-	}
+	Game game;
+	game.run();
 	return 0;
 }
-// eating break
+//Lets Complete player...

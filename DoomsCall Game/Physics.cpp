@@ -1,6 +1,6 @@
 #include "Physics.h"
 
-Vector gravity(0.f, 8.0f);
+Vector gravity(0.f, 800.0f);
 
 Vector::Vector(float x = 0,float y = 0) {
 	value.x = x;
@@ -36,12 +36,45 @@ sf::Vector2f OBJ::getPosition() {
 sf::Vector2f OBJ::getSize() {
 	return box.getSize();
 }
+sf::FloatRect OBJ::getBounds() {
+	return box;
+}
 
 DynamicOBJ::DynamicOBJ(float x = 0, float y = 0, float w = 0, float h = 0):OBJ(x,y,w,h){
 	isgrounded = false;
 	hitceiling = false;
 }
-void DynamicOBJ::simulatePhysics() {
+void DynamicOBJ::simulatePhysics(sf::RectangleShape& shape, float deltatime) {
+	if (isgrounded || hitceiling) {
+		velocity = Vector(velocity.value.x, 0);
+	}
+	else {
+		velocity.addAVector(gravity.value * deltatime);
+	}
+	isgrounded = false;
+	hitceiling = false;
 
+	sf::Vector2f movement = velocity.value * deltatime;
+	if (movement.x != 0.f) {
+		sf::FloatRect futurebounds = getBounds();
+		futurebounds.left += movement.x;
+		if (futurebounds.intersects(shape.getGlobalBounds())) {
+			movement.x = 0;
+		}
+	}
+	if (movement.y != 0.f) {
+		sf::FloatRect futurebounds = getBounds();
+		futurebounds.top += movement.y;
+		if (futurebounds.intersects(shape.getGlobalBounds())) {
+			if (movement.y > 0) {
+				isgrounded = true;
+			}
+			else {
+				hitceiling = true;
+			}
+			movement.y = 0;
+		}
+	}
+	setPosition(getPosition().x + movement.x, getPosition().y + movement.y);
 }
 
