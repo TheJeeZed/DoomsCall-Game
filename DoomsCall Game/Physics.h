@@ -30,5 +30,5 @@ protected:
 	Vector acceleration;
 public:
 	DynamicOBJ(float x, float y, float w, float h);
-	void simulatePhysics(sf::RectangleShape& shape,float deltatime);
+	void simulatePhysics(World& world, float deltatime);
 };

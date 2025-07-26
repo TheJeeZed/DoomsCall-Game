@@ -2,6 +2,30 @@
 
 #include "Physics.h"
 
+class Block {
+protected:
+	BlockType type;
+public:
+	BlockType getType();
+};
+class Air :public Block {
+public:
+	Air();
+};
+class Grass :public Block {
+public:
+	Grass();
+};
+class World {
+	int row;
+	int col;
+public:
+	std::vector<std::vector<Block*>> map;
+	World();
+	int getRow();
+	int getCol();
+};
+
 class Player :public DynamicOBJ {
 	int HP;
 	int maxHP;

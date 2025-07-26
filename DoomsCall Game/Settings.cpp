@@ -6,7 +6,15 @@ std::vector<sf::Texture> Settings::textures;
 
 Settings::Settings() {
 	sf::Texture texture;
+	if (!texture.loadFromFile("assets/no_texture.png")) {
+		return;
+	}
+	textures.push_back(texture);
 	if (!texture.loadFromFile("assets/player.png")) {
+		return;
+	}
+	textures.push_back(texture);
+	if (!texture.loadFromFile("assets/TILES.png")) {
 		return;
 	}
 	textures.push_back(texture);

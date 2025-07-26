@@ -1,10 +1,8 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include <vector>
-#include <iostream>
+#include "Root.h";
 
-enum TextureType {PLAYER};
+
 
 class Settings{
 	static int length;
